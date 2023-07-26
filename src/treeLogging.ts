@@ -20,6 +20,19 @@ while(workStack.length !== 0) {
 }
 
 export function logAllPeopleInTreeWithQueue(topPerson: Person): void {
-    console.log("TODO!  First person is " + topPerson.name);
+    let workStack: Person[] = [];
+    workStack.push(topPerson);
+    
+    while(workStack.length !== 0) {
+        let currentPerson:Person = workStack.shift()!
+        console.log(currentPerson.name);
+        if(currentPerson.children.length !== 0){
+            for(let child of currentPerson.children){
+                workStack.push(child)
+            }
+        }
+        
+    }
+    
 }
 
