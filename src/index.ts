@@ -3,7 +3,7 @@ import { createBritishSuccessionTree } from "./families/britain";
 import { createLannisterTree } from "./families/lannister";
 import { createStarkTree } from "./families/stark";
 // import { logAllPeopleInTree, logAllPeopleInTreeWithQueue } from "./solutions/solution";
-import { logAllPeopleInTree, logAllPeopleInTreeWithQueue } from "./treeLogging";
+import { countPeopleInTree, logAllPeopleInTree, logAllPeopleInTreeWithQueue, logIfInTree } from "./treeLogging";
 import { printBanner } from "./utils/bannerUtils";
 import { printPersonTreeAsAscii } from "./utils/toAsciiTree";
 
@@ -19,13 +19,17 @@ async function mainProgram() {
   // printBanner("LANNISTER");
   // printPersonTreeAsAscii(createLannisterTree());
 
-  // printBanner("All people in STARK")
-  // logAllPeopleInTree(createStarkTree());
+//   printBanner("All people in STARK")
+//  logAllPeopleInTree(createStarkTree());
 
   printBanner("WITH STACK - british royals")
   logAllPeopleInTree(createBritishSuccessionTree());
-  printBanner("WITH QUEUE - british royals")
-  logAllPeopleInTreeWithQueue(createBritishSuccessionTree());
+  console.log(countPeopleInTree(createBritishSuccessionTree()))
+  logIfInTree('Arya',createStarkTree())
+  logIfInTree('Anna',createStarkTree())
+
+  // printBanner("WITH QUEUE - british royals")
+  // logAllPeopleInTreeWithQueue(createBritishSuccessionTree());
 
   // You'll need to add more test code for later exercises, too.
 }
